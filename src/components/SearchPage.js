@@ -17,11 +17,20 @@ export const SearchPage = ({ moveBook, booksOnShelves }) => {
         .catch((err) => {
           console.log(err)
         })
+    } else {
+      setSearchBook([])
     }
   }
 
-  const updateSearchBook = searchBook.filter(function(book) {
-    return !booksOnShelves.includes(book)
+  //updates bookshelves in search query based on books on your shelf
+  const updateSearchBook = searchBook.map((sbook) => {
+    booksOnShelves.map((book) => {
+      if (book.id === sbook.id) {
+        sbook.shelf = book.shelf
+      }
+      return book
+    })
+    return sbook
   })
 
   //passes the search query value into the onSearch function

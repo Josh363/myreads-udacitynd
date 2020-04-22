@@ -29,5 +29,3 @@ export const MainPage = ({ bookshelves, books, moveBook }) => {
     </div>
   )
 }
-
-//todo make a reducer for main page state to pass along
